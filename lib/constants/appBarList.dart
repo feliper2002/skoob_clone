@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 List<Widget> appBars = [
   homeAppBar(),
   lancamentosAppBAr(),
+  AppBar(),
+  AppBar(),
+  AppBar(),
 ];
 
 homeAppBar() => AppBar(

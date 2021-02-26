@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:skoob_clone/constants/appBarList.dart';
+import 'package:skoob_clone/pages/bookshelf/bookshelf.dart';
 import 'package:skoob_clone/pages/home/views/amigos.dart';
 import 'package:skoob_clone/pages/home/views/geral.dart';
 import 'package:skoob_clone/pages/home/views/seguindo.dart';
 import 'package:skoob_clone/pages/lancamentos/lancamentos.dart';
+import 'package:skoob_clone/pages/profile/profile.dart';
+import 'package:skoob_clone/pages/search/search.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,27 +19,6 @@ class _HomePageState extends State<HomePage> {
 
   PageController _pageController = PageController();
   PageController _homePageController = PageController();
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController.addListener(() {
-      int next = _pageController.page.round();
-      if (_currentIndex != next) {
-        setState(() {
-          _currentIndex = next;
-        });
-      }
-    });
-    _homePageController.addListener(() {
-      int next = _homePageController.page.round();
-      if (_currentHomeIndex != next) {
-        setState(() {
-          _currentHomeIndex = next;
-        });
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +48,9 @@ class _HomePageState extends State<HomePage> {
         children: [
           _homePage(),
           Lancamentos(),
+          SearchPage(),
+          BookShelf(),
+          ProfilePage(),
         ],
       ),
     );

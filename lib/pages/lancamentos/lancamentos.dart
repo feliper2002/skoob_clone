@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
 
 class Lancamentos extends StatelessWidget {
+  List<String> _names = [
+    'Editora',
+    'Galera',
+    'Cultura',
+    'Record',
+    'Livros',
+    'ABC',
+    'DarkSide',
+    'Books',
+    '21P',
+    'JCB',
+    'Pani__ni',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +30,7 @@ class Lancamentos extends StatelessWidget {
                 color: Colors.white,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 20,
+                  itemCount: _names.length,
                   itemBuilder: (context, index) => Padding(
                     padding: EdgeInsets.all(8),
                     child: Column(
@@ -25,7 +39,7 @@ class Lancamentos extends StatelessWidget {
                           backgroundColor: Colors.grey,
                           radius: 20,
                         ),
-                        Text('Nome'),
+                        Text(_names[index]),
                       ],
                     ),
                   ),
