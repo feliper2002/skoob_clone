@@ -22,19 +22,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> appBars = appBarsList(context);
     return Scaffold(
       appBar: appBars[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         selectedFontSize: 1,
         unselectedFontSize: 1,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.cake), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
-        ],
+        items: navBarItems,
         onTap: (index) {
           setState(() {
             _pageController.jumpToPage(index);
@@ -55,6 +50,14 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  List<BottomNavigationBarItem> navBarItems = [
+    BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
+    BottomNavigationBarItem(icon: Icon(Icons.cake_outlined), label: ''),
+    BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
+    BottomNavigationBarItem(icon: Icon(Icons.menu_book_outlined), label: ''),
+    BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: ''),
+  ];
 
   _homePage() => LayoutBuilder(
         builder: (context, constraints) => Container(
@@ -83,16 +86,7 @@ class _HomePageState extends State<HomePage> {
                             });
                           },
                           currentIndex: _currentHomeIndex,
-                          items: [
-                            BottomNavigationBarItem(
-                                icon: Icon(Icons.language), label: 'Geral'),
-                            BottomNavigationBarItem(
-                                icon: Icon(Icons.person_outline),
-                                label: 'Seguindo'),
-                            BottomNavigationBarItem(
-                                icon: Icon(Icons.people_alt_outlined),
-                                label: 'Amigos'),
-                          ],
+                          items: homeNavItems,
                         ),
                       ),
                     ],
@@ -120,4 +114,20 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       );
+///////////////////////////////////////////////////////////////////////////
+  List<BottomNavigationBarItem> homeNavItems = [
+    BottomNavigationBarItem(
+      icon: Icon(Icons.language),
+      label: 'Geral',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.person_outline),
+      label: 'Seguindo',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.people_alt_outlined),
+      label: 'Amigos',
+    ),
+  ];
+///////////////////////////////////////////////////////////////////////////
 }

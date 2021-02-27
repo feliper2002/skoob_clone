@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-List<Widget> appBars = [
-  homeAppBar(),
-  lancamentosAppBAr(),
-  AppBar(),
-  AppBar(),
-  AppBar(),
-];
+List<Widget> appBarsList(BuildContext context) => [
+      homeAppBar(),
+      lancamentosAppBAr(),
+      AppBar(),
+      AppBar(),
+      profileAppBar(context),
+    ];
 
 homeAppBar() => AppBar(
       leading: IconButton(
@@ -41,6 +41,34 @@ lancamentosAppBAr() => AppBar(
       actions: [
         IconButton(
           icon: Icon(Icons.wallet_giftcard, color: Colors.white),
+          onPressed: () {},
+        ),
+      ],
+    );
+
+profileAppBar(BuildContext context) => AppBar(
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back_ios),
+        color: Colors.blue,
+        onPressed: () {
+          Navigator.pushNamed(context, '/home');
+        },
+      ),
+      elevation: 0,
+      title: Text(
+        'User Name',
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w300,
+        ),
+      ),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.mail_outline, color: Colors.grey),
+          onPressed: () {},
+        ),
+        IconButton(
+          icon: Icon(Icons.menu, color: Colors.grey),
           onPressed: () {},
         ),
       ],

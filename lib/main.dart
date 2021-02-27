@@ -14,12 +14,7 @@ class InitApp extends StatelessWidget {
       theme: themeData(),
       initialRoute: '/home',
       routes: {
-        // '/': (context) => Splash(),
-        // '/register': (context) => RegisterPage(),
-        // '/login': (context) => LoginPage(),
         '/home': (context) => HomePage(),
-        // '/bookshelf': (context) => BookShelf(),
-        // '/profile': (context) => ProfilePage(),
       },
     );
   }
